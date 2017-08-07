@@ -65,10 +65,10 @@ class DetailHeaderBehavior extends AppBarLayout.Behavior implements AppBarLayout
 			detail_recyclerView = parent.findViewById(R.id.detail_recyclerView);
 			car_fl = parent.findViewById(R.id.car_mainfl);
 			car_fl.setTranslationY(mContext.getResources().getDimension(R.dimen.shopcar_height));
-			tv_close = parent.findViewById(R.id.tv_close);
+			tv_close = (TextView) parent.findViewById(R.id.tv_close);
 			ic_close = parent.findViewById(R.id.ic_close);
-			toolbar = abl.findViewById(R.id.toolbar);
-			toolbar_title = abl.findViewById(R.id.toolbar_title);
+			toolbar = (Toolbar) abl.findViewById(R.id.toolbar);
+			toolbar_title = (TextView) abl.findViewById(R.id.toolbar_title);
 			toolbar_title.setTranslationY(abl.getTotalScrollRange());
 			dhv = abl;
 			dhv.addOnOffsetChangedListener(this);

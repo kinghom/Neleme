@@ -37,6 +37,8 @@ public class ListContainer extends LinearLayout {
 	private Context mContext;
 	public FoodAdapter foodAdapter;
 	public static List<FoodBean> commandList = new ArrayList<>();
+	private TextView tvStickyHeaderView;
+	private View stickView;
 
 	public ListContainer(Context context) {
 		super(context);
@@ -46,7 +48,7 @@ public class ListContainer extends LinearLayout {
 		super(context, attrs);
 		mContext = context;
 		inflate(mContext, R.layout.view_listcontainer, this);
-		RecyclerView recyclerView1 = findViewById(R.id.recycler1);
+		RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
 		recyclerView1.setLayoutManager(new LinearLayoutManager(mContext));
 		typeAdapter = new TypeAdapter(BaseUtils.getTypes());
 		View view = new View(mContext);
@@ -73,7 +75,7 @@ public class ListContainer extends LinearLayout {
 				}
 			}
 		});
-		recyclerView2 = findViewById(R.id.recycler2);
+		recyclerView2 = (RecyclerView) findViewById(R.id.recycler2);
 		linearLayoutManager = new LinearLayoutManager(mContext);
 		recyclerView2.setLayoutManager(linearLayoutManager);
 		((DefaultItemAnimator) recyclerView2.getItemAnimator()).setSupportsChangeAnimations(false);
@@ -125,8 +127,9 @@ public class ListContainer extends LinearLayout {
 		view.setMinimumHeight(ViewUtils.dip2px(mContext, 50));
 		foodAdapter.addFooterView(view);
 		foodAdapter.bindToRecyclerView(recyclerView2);
-		final View stickView = findViewById(R.id.stick_header);
-		final TextView tvStickyHeaderView = (TextView) stickView.findViewById(R.id.tv_header);
+		stickView = findViewById(R.id.stick_header);
+		tvStickyHeaderView = (TextView) findViewById(R.id.tv_header);
+		tvStickyHeaderView.setText("类别0");
 		recyclerView2.addOnScrollListener(new RecyclerView.OnScrollListener() {
 			@Override
 			public void onScrolled(RecyclerView recyclerView, int dx, int dy) {

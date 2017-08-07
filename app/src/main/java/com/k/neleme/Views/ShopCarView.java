@@ -69,10 +69,10 @@ public class ShopCarView extends FrameLayout {
 	protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
 		super.onLayout(changed, left, top, right, bottom);
 		if (iv_shop_car == null) {
-			iv_shop_car = findViewById(R.id.iv_shop_car);
-			car_badge = findViewById(R.id.car_badge);
-			car_limit = findViewById(R.id.car_limit);
-			tv_amount = findViewById(R.id.tv_amount);
+			iv_shop_car = (ImageView) findViewById(R.id.iv_shop_car);
+			car_badge = (TextView) findViewById(R.id.car_badge);
+			car_limit = (TextView) findViewById(R.id.car_limit);
+			tv_amount = (TextView) findViewById(R.id.tv_amount);
 			shoprl = findViewById(R.id.car_rl);
 			shoprl.setOnClickListener(new toggleCar());
 			carLoc = new int[2];

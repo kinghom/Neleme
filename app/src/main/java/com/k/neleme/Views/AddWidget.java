@@ -42,7 +42,7 @@ public class AddWidget extends FrameLayout {
 	public AddWidget(@NonNull Context context, @Nullable AttributeSet attrs) {
 		super(context, attrs);
 		inflate(context, R.layout.view_addwidget, this);
-		addbutton = findViewById(R.id.addbutton);
+		addbutton = (AddButton) findViewById(R.id.addbutton);
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AddWidget);
 		for (int i = 0; i < a.getIndexCount(); i++) {
 			int attr = a.getIndex(i);
@@ -58,7 +58,7 @@ public class AddWidget extends FrameLayout {
 		}
 		a.recycle();
 		sub = findViewById(R.id.iv_sub);
-		tv_count = findViewById(R.id.tv_count);
+		tv_count = (TextView) findViewById(R.id.tv_count);
 		addbutton.setAnimListner(new AddButton.AnimListner() {
 			@Override
 			public void onStop() {
